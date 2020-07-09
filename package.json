@@ -1,0 +1,8 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "express server with auth",
+  "main": "index.js",
+  "author": "Chuck Smith",
+  "license": "MIT"
+}
