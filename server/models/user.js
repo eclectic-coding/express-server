@@ -61,4 +61,62 @@ UserSchema.statics.findByToken = async function (token) {
   }
 };
 
+UserSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    try {
+      this.password = await bcrypt.hash(this.password, 8);
+      next();
+    } catch (err) {
+      next(err);
+    }
+  } else {
+    next();
+  }
+});
+
+UserSchema.statics.findByCredentials = async function (email, password) {
+  const user = await this.findOne({ email });
+  if (!user) {
+    throw {
+      errors: {
+        email: {
+          message: "User not found."
+        }
+      }
+    };
+  } else {
+    if (await bcrypt.compare(password, user.password)) {
+      return user;
+    } else {
+      throw {
+        errors: {
+          password: {
+            message: "Incorrect password."
+          }
+        }
+      };
+    }
+  }
+};
+
+UserSchema.pre("save", async function (next) {
+  if (this.isModified("role") && this.role === "admin") {
+    const users = await this.constructor.find({ role: "admin" });
+    if (users.length >= 1) {
+      next(new Error("Only one admin user can be added."));
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
+UserSchema.methods.removeToken = function (token) {
+  const user = this;
+  user.token = null;
+  return user.save();
+};
+
+
 module.exports = mongoose.model('User', UserSchema);
