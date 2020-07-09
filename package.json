@@ -4,5 +4,21 @@
   "description": "express server with auth",
   "main": "index.js",
   "author": "Chuck Smith",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec babel-node server/index.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "forever": "^3.0.0",
+    "nodemon": "^2.0.4",
+    "supervisor": "^0.12.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
 }
