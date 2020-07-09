@@ -1,17 +1,18 @@
 const User = require('../models/user');
 
-exports.list = (req, res) => {
-  res.send({ message: 'It works!' });
-};
-
 exports.create = async (req, res) => {
-
-  const user = new User(req.body);
+  const { name, email, password } = req.body;
+  const user = new User({ name, email, password });
   try {
     const doc = await user.save();
-    res.send({ user: doc });
-  } catch (e) {
-    res.status(400);
+    const token = await doc.generateAuthToken();
+    res
+      .header("authorization", `Bearer ${token}`)
+      .send(doc);
+  } catch (err) {
+    res.status(400).send(err);
   }
 };
+
+exports.read = async (req, res) => res.send(req.user);
 

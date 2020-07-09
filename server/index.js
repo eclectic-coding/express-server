@@ -13,21 +13,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(express.json());
 app.use(cors());
 
-// const user = new User({
-//   name: 'Pete',
-//   email: 'test@test.com',
-//   password: 'ccs43300'
-// });
-//
-// (async () => {
-//   try {
-//     const doc = await user.save();
-//     console.log('Saved User.');
-//   } catch (e) {
-//     console.log('Error: ', e);
-//
-// })();
-
 // Routes
 app.use('/users', require('./routes/users'));
 
