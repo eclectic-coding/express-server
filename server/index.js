@@ -3,6 +3,11 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+// Route files
+import userRoutes from './routes/users';
+import surveyRoutes from './routes/surveys';
+
+
 
 const app = express();
 mongoose.connect(process.env.MONGODB_URI, {
@@ -14,7 +19,8 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
-app.use('/users', require('./routes/users'));
+app.use('/api/', userRoutes);
+app.use('/api/surveys', surveyRoutes);
 
 // Handle production
 if (process.env.NODE_ENV === 'production') {
