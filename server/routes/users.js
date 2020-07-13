@@ -1,17 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const UserController = require("../controllers/users");
+const UsersController = require("../controllers/users");
 const authenticate = require("../utils/auth")
 
 
 router
-  .route("/register")
-  .post(UserController.create)
-  // .all(authenticate)
-  .get(UserController.read)
+  .route("/")
+  .post(UsersController.create)
+  .all(authenticate)
+  .get(UsersController.read)
 
 router
   .route("/login")
-  .post(UserController.login)
+  .post(UsersController.login)
+
+// Add ME - aka Profile
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const UserSchema = mongoose.Schema({
   name: {
@@ -30,7 +30,7 @@ const UserSchema = mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['admin', 'user'],
+    enum: [ 'admin', 'user' ],
     default: 'user'
   }
 }, {
@@ -111,12 +111,5 @@ UserSchema.pre("save", async function (next) {
     next();
   }
 });
-
-UserSchema.methods.removeToken = function (token) {
-  const user = this;
-  user.token = null;
-  return user.save();
-};
-
 
 module.exports = mongoose.model('User', UserSchema);

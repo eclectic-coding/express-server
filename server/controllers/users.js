@@ -7,7 +7,7 @@ exports.create = async (req, res) => {
     const doc = await user.save();
     const token = await doc.generateAuthToken();
     res
-      .header("authorization", `Bearer ${token}`)
+      .header('authorization', `Bearer ${token}`)
       .send(doc);
   } catch (err) {
     res.status(400).send(err);
@@ -27,6 +27,15 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.read = async (req, res) => res.send(req.user);
+exports.read = async (req, res) => res.send({ user: req.user });
+
+// exports.logout = async (req, res) => {
+//   try {
+//     await req.user.removeToken(req.token);
+//     res.status(200).send();
+//   } catch (err) {
+//     res.status(500).send();
+//   }
+// };
 
 
