@@ -25,11 +25,11 @@ exports.login = async (req, res) => {
 
 exports.read = async (req, res) => res.send({ user: req.user });
 
-// exports.logout = async (req, res) => {
-//   try {
-//     await req.user.removeToken(req.token);
-//     res.status(200).send();
-//   } catch (err) {
-//     res.status(500).send();
-//   }
-// };
+exports.logout = async (req, res) => {
+  try {
+    await req.user.removeToken(req.token);
+    res.status(200).send();
+  } catch (err) {
+    res.status(500).send();
+  }
+};

@@ -5,4 +5,6 @@ const UsersController = require("../controllers/users");
 
 router.get(UsersController.read);
 
+router.route("/logout").delete(UsersController.logout);
+
 module.exports = router;

@@ -16,6 +16,10 @@ export default new Vuex.Store({
         "Authorization"
       ] = `Bearer ${userData.token}`;
       state.user = userData;
+    },
+    LOG_OUT() {
+      localStorage.removeItem("user");
+      localStorage.reload();
     }
   },
   actions: {
@@ -34,6 +38,9 @@ export default new Vuex.Store({
           commit("SET_USER_DATA", data);
           console.log(data);
         });
+    },
+    logout({ commit }) {
+      commit("LOG_OUT");
     }
   },
   modules: {}

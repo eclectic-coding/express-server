@@ -10,15 +10,6 @@
           transition="scale-transition"
           width="40"
         />
-
-        <!--        <v-img-->
-        <!--          alt="Vuetify Name"-->
-        <!--          class="shrink mt-1 hidden-sm-and-down"-->
-        <!--          contain-->
-        <!--          min-width="100"-->
-        <!--          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"-->
-        <!--          width="100"-->
-        <!--        />-->
       </div>
 
       <v-spacer></v-spacer>
@@ -32,6 +23,8 @@
           <v-btn text>Login</v-btn>
         </router-link>
       </div>
+
+      <v-btn @click="logout">Log out</v-btn>
     </v-app-bar>
 
     <v-main>
@@ -45,6 +38,18 @@ export default {
   name: "App",
   data: () => ({
     //
-  })
+  }),
+  methods: {
+    async logout() {
+      this.$store
+        .dispatch("logout")
+        .then(() => {
+          this.$router.push({ name: "Home" });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 };
 </script>
