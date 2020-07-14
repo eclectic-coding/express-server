@@ -1,16 +1,12 @@
 <template>
   <div>
+    <h1>This is an Register page</h1>
     <v-card width="400" class="mt-5 mx-auto">
-      <v-card-title class="pb-0 justify-center">
-        <h1>Register</h1>
+      <v-card-title class="pb-0">
+        <h1>Login</h1>
       </v-card-title>
       <v-card-text>
-        <v-form @submit.prevent="register" class="px-5">
-          <v-text-field
-            v-model="name"
-            label="Name"
-            prepend-icon="mdi-account-circle"
-          />
+        <v-form @submit.prevent="login" class="px-5">
           <v-text-field v-model="email" label="Email" prepend-icon="mdi-mail" />
           <v-text-field
             v-model="password"
@@ -24,7 +20,7 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions class="my-1">
-        <v-btn class="ml-5 success">Register</v-btn>
+        <v-btn @click="login" type="submit" class="ml-5 success">Login</v-btn>
         <v-btn class="ml-5 Info">Cancel</v-btn>
       </v-card-actions>
     </v-card>
@@ -35,7 +31,6 @@
 export default {
   data() {
     return {
-      name: "",
       email: "",
       password: "",
       status: null,
@@ -43,10 +38,9 @@ export default {
     };
   },
   methods: {
-    async register() {
+    async login() {
       this.$store
-        .dispatch("register", {
-          name: this.name,
+        .dispatch("login", {
           email: this.email,
           password: this.password
         })

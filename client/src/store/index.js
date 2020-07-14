@@ -21,10 +21,18 @@ export default new Vuex.Store({
   actions: {
     async register({ commit }, credentials) {
       await axios
-        .post("http://localhost:5000/api/users", credentials)
+        .post("http://localhost:5000/signup", credentials)
         .then(data => {
-          console.log(data);
           commit("SET_USER_DATA", data);
+          console.log(data);
+        });
+    },
+    async login({ commit }, credentials) {
+      await axios
+        .post("http://localhost:5000/login", credentials)
+        .then(data => {
+          commit("SET_USER_DATA", data);
+          console.log(data);
         });
     }
   },

@@ -1,35 +1,50 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/api/users/register">Register</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <!--        <v-img-->
+        <!--          alt="Vuetify Name"-->
+        <!--          class="shrink mt-1 hidden-sm-and-down"-->
+        <!--          contain-->
+        <!--          min-width="100"-->
+        <!--          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"-->
+        <!--          width="100"-->
+        <!--        />-->
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <div v-if="!this.$store.state.user">
+        <router-link :to="{ name: 'Register' }">
+          <v-btn text>Register</v-btn>
+        </router-link>
+
+        <router-link :to="{ name: 'Login' }">
+          <v-btn text>Login</v-btn>
+        </router-link>
+      </div>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-@import "./assets/styles/global.scss";
-
-.page {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  min-height: calc(100vh - 56px);
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+export default {
+  name: "App",
+  data: () => ({
+    //
+  })
+};
+</script>

@@ -2,8 +2,8 @@ import "dotenv/config";
 import express, { json } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import { signup, login } from "./controllers/users";
 
-// Route files
 import userRoutes from "./routes/users";
 import surveyRoutes from "./routes/surveys";
 
@@ -20,8 +20,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(cors());
 app.use(json());
 
-// Routes
-app.use("/api/users", cors(), userRoutes);
+app.post("/signup", signup);
+app.post("/login", login);
+
+app.use("/api/user", userRoutes);
 app.use("/api/surveys", surveyRoutes);
 
 // Handle production
