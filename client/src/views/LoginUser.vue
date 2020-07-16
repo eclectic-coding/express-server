@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card width="400" class="mt-8 mx-auto">
-      <v-card-title class="pb-0">
+      <v-card-title class="pb-0 justify-center">
         <h1>Login</h1>
       </v-card-title>
       <v-card-text>
