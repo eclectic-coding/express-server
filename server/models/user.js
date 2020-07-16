@@ -37,11 +37,12 @@ const UserSchema = mongoose.Schema(
   },
   {
     toJSON: {
-      transform: (doc, { _id, name, email, role }) => ({
+      transform: (doc, { _id, name, email, role, token }) => ({
         id: _id,
         name,
         email,
-        role
+        role,
+        token
       })
     }
   }

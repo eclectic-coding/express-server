@@ -2,14 +2,16 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+        <router-link :to="{ name: 'Home' }">
+          <v-img
+            alt="Vuetify Logo"
+            class="shrink mr-2"
+            contain
+            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+            transition="scale-transition"
+            width="40"
+          />
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>
@@ -24,7 +26,12 @@
         </router-link>
       </div>
 
-      <v-btn @click="logout">Log out</v-btn>
+      <div v-if="this.$store.state.user">
+        <router-link :to="{ name: 'Dashboard' }">
+          <v-btn text>Dashboard</v-btn>
+          <v-btn text @click="logout">Log out</v-btn>
+        </router-link>
+      </div>
     </v-app-bar>
 
     <v-main>
@@ -44,7 +51,7 @@ export default {
       this.$store
         .dispatch("logout")
         .then(() => {
-          this.$router.push({ name: "Home" });
+          this.$router.push({ name: "Login" });
         })
         .catch(err => {
           console.log(err);

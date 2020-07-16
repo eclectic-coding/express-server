@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card width="400" class="mt-5 mx-auto">
+    <v-card width="400" class="mt-8 mx-auto">
       <v-card-title class="pb-0 justify-center">
         <h1>Register</h1>
       </v-card-title>

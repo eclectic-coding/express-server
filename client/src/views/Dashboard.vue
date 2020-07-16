@@ -1,5 +1,9 @@
 <template>
-  <div>
-    <h1>Dashboard</h1>
-  </div>
+  <v-container>
+    <h1 class="text-center">Dashboard</h1>
+  </v-container>
 </template>
+
+<script>
+export default {};
+</script>

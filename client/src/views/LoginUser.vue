@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>This is an Register page</h1>
-    <v-card width="400" class="mt-5 mx-auto">
+    <v-card width="400" class="mt-8 mx-auto">
       <v-card-title class="pb-0">
         <h1>Login</h1>
       </v-card-title>
@@ -38,14 +37,14 @@ export default {
     };
   },
   methods: {
-    async login() {
+    login() {
       this.$store
         .dispatch("login", {
           email: this.email,
           password: this.password
         })
         .then(() => {
-          this.$router.push({ name: "Home" });
+          this.$router.push({ name: "Dashboard" });
         })
         .catch(err => {
           console.log(err);

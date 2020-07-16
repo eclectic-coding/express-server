@@ -23,7 +23,10 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.read = async (req, res) => res.send({ user: req.user });
+exports.read = async (req, res) => {
+  console.log(req.user);
+  res.send({ user: req.user });
+};
 
 exports.logout = async (req, res) => {
   try {

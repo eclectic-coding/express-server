@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
-    <h1>Nope</h1>
-  </div>
+  <v-container class="mt-8">
+    <h1 class="text-center">Home page</h1>
+  </v-container>
 </template>
 
 <script>
