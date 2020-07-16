@@ -6,10 +6,12 @@
   "author": "Chuck Smith",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec babel-node server/index.js",
+    "build": "node server/public/index.js",
+    "start": "node --exec babel-node server/index.js",
     "dev": "nodemon --exec babel-node server/index.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.4",
     "@babel/node": "^7.10.4",
     "supervisor": "^0.12.0"
