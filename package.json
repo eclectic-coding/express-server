@@ -10,6 +10,9 @@
     "start": "node --exec babel-node server/index.js",
     "dev": "nodemon --exec babel-node server/index.js"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.4",
