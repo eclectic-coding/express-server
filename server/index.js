@@ -1,15 +1,16 @@
-import "dotenv/config";
-import express, { json } from "express";
-import cors from "cors";
-import mongoose from "mongoose";
-import { signup, login } from "./controllers/users";
+require("dotenv").config();
+const express = require("express");
+const { json } = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const { signup, login } = require("./controllers/users");
 
-import userRoutes from "./routes/users";
-import surveyRoutes from "./routes/surveys";
+const userRoutes = require("./routes/users");
+const surveyRoutes = require("./routes/surveys");
 
 const app = express();
 
-// app.disable('x-powered-by')
+app.disable("x-powered-by");
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,

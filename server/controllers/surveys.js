@@ -1,4 +1,4 @@
-const Survey = require('../models/survey');
+const Survey = require("../models/survey");
 
 // CRUD - Create
 exports.createOne = async (req, res) => {
@@ -23,16 +23,10 @@ exports.getMany = async (req, res) => {
 
 // CRUD - Update
 exports.updateOne = (req, res) => {
-  res.send({ message: 'Update one survey' });
+  res.send({ message: "Update one survey" });
 };
 
 // CRUD - Delete
 exports.removeOne = (req, res) => {
-  res.send({ message: 'Remove one survey' });
+  res.send({ message: "Remove one survey" });
 };
-
-
-
-
-
-
