@@ -1393,10 +1393,10 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-validator@^13.5.0:
-  version "13.5.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-13.5.0.tgz#9ddd54514fff226f4f05cb6340c357183b54a256"
-  integrity sha512-swCJwyC4QdPvk16CagC126fqi6V6PRYTawdSc+F+eQv58uS1cmggGMPTKc6QQ90YFGsWjWgiGcSTmzx96p2U6Q==
+validator@^13.5.1:
+  version "13.5.1"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-13.5.1.tgz#3926dfdd07a7e7325ab657fe46f2143eac55f076"
+  integrity sha512-s+7LW1Xi0OzPNfGN7Hb2vk0YB/epp9KFHHGC5JtqZOE1dUkN4ULPFZAQ1inCu7ceAsWmOJu6sn9cnwm3R+ghWQ==
 
 vary@^1, vary@~1.1.2:
   version "1.1.2"
